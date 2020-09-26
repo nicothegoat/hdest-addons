@@ -46,6 +46,7 @@ class NHDAHandler : EventHandler
 
 		itemsThatUseThis.Insert( item, itutString );
 
+		if( !developer ) developer = CVar.GetCVar( "developer" );
 		if( developer.GetBool() )
 		{
 			if( !NHDA.HasClass( itemClass ) ) console.printf( "Missing item class \"%s\"", itemClass );
