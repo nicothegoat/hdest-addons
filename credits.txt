@@ -1,0 +1,8 @@
+Crowbar sprites, sounds, charge mechanic
+	https://github.com/OrdinaryMagician/soundless_m
+
+Banana sprite
+	https://toppng.com/fruits-banana-peel-with-transparent-background-PNG-free-PNG-Images_223829
+
+Banana slip sound
+	wee.ogg from SuperTuxKart

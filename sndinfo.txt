@@ -1,0 +1,7 @@
+$alias rndmaker2/chug roundmaker/chug2 $volume rndmaker2/chug 0.2 $attenuation rndmaker2/chug 2
+$alias rndmaker2/pop  roundmaker/pop   $volume rndmaker2/pop  0.5 $attenuation rndmaker2/pop  2
+
+crowbar/swing "sounds/crowbar/barswing.ogg"
+crowbar/crit  "sounds/crowbar/barcrit.ogg"
+
+banana/slip "sounds/banana/slip.wav"
