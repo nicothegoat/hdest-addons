@@ -46,7 +46,7 @@ class NHDAHandler : EventHandler
 
 		itemsThatUseThis.Insert( item, itutString );
 
-		if( !developer ) developer = CVar.GetCVar( "developer" );
+		if( !developer ) developer = CVar.FindCVar( "developer" );
 		if( developer.GetBool() )
 		{
 			if( !NHDA.HasClass( itemClass ) ) console.printf( "Missing item class \"%s\"", itemClass );
@@ -56,7 +56,7 @@ class NHDAHandler : EventHandler
 
 	override void OnRegister( void )
 	{
-		developer = CVar.GetCVar( "developer" );
+		developer = CVar.FindCVar( "developer" );
 
 		itemsThatUseThis = Dictionary.Create();
 
