@@ -30,7 +30,6 @@ class NHDACrowbar : HDWeapon
 
 		+NoBlood
 		+NoDamage
-		+Shootable
 		health TELEFRAG_DAMAGE;
 		painchance 256;
 	}
@@ -45,7 +44,7 @@ class NHDACrowbar : HDWeapon
 	override bool CanCollideWith( Actor other, bool passive )
 	{
 		// collide with bullets
-		return super.CanCollideWith( other, passive ) || ( other.bMissile );
+		return super.CanCollideWith( other, passive ) || ( bShootable && other.bMissile );
 	}
 
 	override bool AddSpareWeapon( Actor newOwner ) { return AddSpareWeaponRegular( newOwner ); }
