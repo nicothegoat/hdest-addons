@@ -119,7 +119,7 @@ class NHDACrowbar : HDWeapon
 
 		bShootable = false;
 
-		mass = GetDefaultByType( GetClass() ).mass;
+		mass = default.mass;
 	}
 
 	override void ActualPickup( Actor other, bool silent )
