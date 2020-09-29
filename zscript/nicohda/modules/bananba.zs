@@ -19,9 +19,7 @@ class NHDABananaPeel : HDMagAmmo
 
 	override String PickupMessage( void )
 	{
-		if( mags[ 0 ] > 0 )
-			return "Picked up (and defused) a banana peel.";
-		else return "Picked up a banana peel.";
+		return "Picked up (and defused) a banana peel.";
 	}
 
 	override bool IsUsed( void ) { return true; }
