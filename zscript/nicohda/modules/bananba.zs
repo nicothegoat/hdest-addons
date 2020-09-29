@@ -59,7 +59,7 @@ class NHDABananaPeel : HDMagAmmo
 					mob.SetState( incapState );
 					mob.A_Pain();
 
-					mags[ 0 ]--;
+					BananaSquish();
 					A_StartSound( "banana/slip" );
 				}
 			}
@@ -74,12 +74,23 @@ class NHDABananaPeel : HDMagAmmo
 				plr.A_Incapacitated( HDPlayerPawn.HDINCAP_SCREAM, magnitude * 2 );
 
 				// infinite use for the funnies
-				//mags[ 0 ]--;
+				//BananaSquish();
 				A_StartSound( "banana/slip" );
 			}
 		}
 
 		return false;
+	}
+
+	void BananaSquish()
+	{
+		mags[ 0 ]--;
+
+		if( mags[ 0 ] == 0 )
+		{
+			A_ChangeLinkFlags( 1 );
+			scale.y = 0.5;
+		}
 	}
 
 	states
