@@ -28,12 +28,7 @@ class NHDABananaPeel : HDMagAmmo
 	{
 		// HDPickerUpper collision
 		if( super.CanCollideWith( other, passive ) ) return true;
-
-		if(
-			mags[ 0 ] == 0 ||
-			pos.z > floorZ ||
-			vel.z > 0
-		) return false;
+		if( pos.z > floorZ || vel.z > 0 ) return false;
 
 		let mob = HDMobBase( other );
 		let plr = HDPlayerPawn( other );
