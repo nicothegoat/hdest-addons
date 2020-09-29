@@ -7,7 +7,7 @@ my personal Hideous Destructor addons
 
 	Loadout code `cbr`
 
-	A melee weapon which can be used to hold a door or lift in place.
+	A melee weapon which can be also used to hold a door or lift in place.
 
 	Primary fire swings the crowbar.
 	You can hold it down for a stronger swing.
