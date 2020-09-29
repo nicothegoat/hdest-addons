@@ -5,7 +5,7 @@ class NHDABananaPeel : HDMagAmmo
 	{
 		+inventory.invbar
 
-		radius 16;
+		radius 12;
 		height 8;
 
 		hdmagammo.maxperunit 3;
