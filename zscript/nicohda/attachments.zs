@@ -1,5 +1,3 @@
-class NHDAAttachmentsModule : NHDAModule {}
-
 // TODO
 class NHDAAttachment : Inventory abstract
 {

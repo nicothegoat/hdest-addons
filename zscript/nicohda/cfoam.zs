@@ -1,9 +1,3 @@
-
-class NHDACFoamModule : NHDAModule
-{
-	// SORRY NOTHING
-}
-
 class NHDACFoamSprayer : HDWeapon
 {
 	default

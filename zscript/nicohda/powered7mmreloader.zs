@@ -1,17 +1,3 @@
-class NHDAPoweredReloaderModule : NHDAModule
-{
-	// TODO: spawning
-
-	override void Init( void )
-	{
-		// add the reloader to ItemsThatUseThis arrays
-		master.AddItemsThatUseThis( "HDBattery",     "NHDAPoweredReloader" );
-		master.AddItemsThatUseThis( "HD4mMag",       "NHDAPoweredReloader" );
-		master.AddItemsThatUseThis( "FourMilAmmo",   "NHDAPoweredReloader" );
-		master.AddItemsThatUseThis( "SevenMilBrass", "NHDAPoweredReloader" );
-	}
-}
-
 class NHDAPoweredReloaderTracker : Thinker
 {
 	array< int > allocated;
@@ -385,8 +371,6 @@ class NHDAPoweredReloader : AutoReloader
 		PRLS_LOCALID = 1,
 		PRLS_GLOBALID = 2
 	}
-
-	NHDAPoweredReloaderModule module;
 
 	bool attached;
 

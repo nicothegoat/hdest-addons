@@ -1,8 +1,3 @@
-class NHDACrowbarModule : NHDAModule
-{
-	// TODO: spawning
-}
-
 class NHDACrowbar : HDWeapon
 {
 	const CrowbarRange = 72;
