@@ -36,6 +36,11 @@ class NHDAHandler : EventHandler
 {
 	transient CVar developer;
 
+	bool HasClass( string className )
+	{
+		return ( class< object > )( className );
+	}
+
 	void AddItemsThatUseThis( string itemClass, string thisClass )
 	{
 		let item = itemClass.MakeLower();
@@ -49,8 +54,8 @@ class NHDAHandler : EventHandler
 		if( !developer ) developer = CVar.FindCVar( "developer" );
 		if( developer.GetBool() )
 		{
-			if( !NHDA.HasClass( itemClass ) ) console.printf( "Missing item class \"%s\"", itemClass );
-			if( !NHDA.HasClass( thisClass ) ) console.printf( "Missing item class \"%s\"", thisClass );
+			if( !HasClass( itemClass ) ) console.printf( "Missing item class \"%s\"", itemClass );
+			if( !HasClass( thisClass ) ) console.printf( "Missing item class \"%s\"", thisClass );
 		}
 	}
 
