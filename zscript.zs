@@ -3,10 +3,8 @@ version 4.3.3
 // ples do not the looking at spaghetti code
 
 #include "zscript/nicohda/powered7mmreloader.zs"
-#include "zscript/nicohda/attachments.zs"
 #include "zscript/nicohda/crowbar.zs"
 #include "zscript/nicohda/bananba.zs"
-#include "zscript/nicohda/cfoam.zs"
 
 class NHDAHandler : EventHandler
 {
