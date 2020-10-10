@@ -584,10 +584,10 @@ class NHDAPoweredReloader : AutoReloader
 		user3:
 			---- A 0
 			{
-				if     ( countinv( "HD4mMag" ) )  A_MagManager( "HD4mMag" );
-				else if( countinv( "HD7mMag" ) )  A_MagManager( "HD7mMag" );
+				if     ( countinv( "HD4mMag"  ) ) A_MagManager( "HD4mMag" );
+				else if( countinv( "HD7mMag"  ) ) A_MagManager( "HD7mMag" );
 				else if( countinv( "HD7mClip" ) ) A_MagManager( "HD7mClip" );
-				else                           A_MagManager( "HDBattery" );
+				else                              A_MagManager( "HDBattery" );
 			}
 			goto nope;
 
