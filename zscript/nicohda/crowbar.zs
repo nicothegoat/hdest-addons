@@ -145,10 +145,9 @@ class NHDACrowbar : HDWeapon
 
 			let hitLine = data.HitLine;
 
-			vector2 delta;
+			vector2 delta = hitLine.delta;
 			if( data.LineSide == Line.front )
-				delta = hitLine.V1.P - hitLine.V2.P;
-			else delta = hitLine.V2.P - hitLine.V1.P;
+				delta = -delta;
 
 			let hitNormal = ( -delta.y, delta.x ).Unit();
 
