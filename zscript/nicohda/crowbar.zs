@@ -171,28 +171,28 @@ class NHDACrowbar : HDWeapon
 				place = true;
 			}
 
-			if( place )
-			{
-				let cbr = NHDACrowbar( Spawn( "NHDACrowbar", newPos ) );
-
-				if( owner.Distance3D( cbr ) <= CrowbarRange )
-				{
-					cbr.angle = newAngle;
-					cbr.AttachCrowbar( blocked, onFloor );
-
-					Amount -= 1;
-					GetSpareWeapon( owner );
-				}
-				else cbr.Destroy();
-			}
-
 			break;
 
-		default:
 		case Trace_HitCeiling:
 		case Trace_HitFloor:
 		case Trace_HitNone:
+		default:
 			break;
+		}
+
+		if( place )
+		{
+			let cbr = NHDACrowbar( Spawn( "NHDACrowbar", newPos ) );
+
+			if( owner.Distance3D( cbr ) <= CrowbarRange )
+			{
+				cbr.angle = newAngle;
+				cbr.AttachCrowbar( blocked, onFloor );
+
+				Amount -= 1;
+				GetSpareWeapon( owner );
+			}
+			else cbr.Destroy();
 		}
 	}
 
