@@ -192,6 +192,7 @@ class NHDACrowbar : HDWeapon
 			{
 				let lll = blocked.lines[ i ];
 				let other = lll.frontsector == blocked ? lll.backsector : lll.frontsector;
+				if( other == blocked ) continue;
 
 				// math...........................
 				let delta = lll.delta;
