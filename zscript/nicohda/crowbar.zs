@@ -146,7 +146,7 @@ class NHDACrowbar : HDWeapon
 
 			let hitLine = data.HitLine;
 
-			vector2 delta = hitLine.delta;
+			let delta = hitLine.delta;
 			if( data.LineSide == Line.front )
 				delta = -delta;
 
@@ -155,10 +155,10 @@ class NHDACrowbar : HDWeapon
 			newPos = data.HitLocation + ( hitNormal * radius * 1.3 );
 			newAngle = VectorAngle( hitNormal.x, hitNormal.y ) - 90;
 
-			double blockedFloorZ = blocked.floorPlane.ZAtPoint( data.HitLocation.xy );
-			double blockedCeilZ = blocked.ceilingPlane.ZAtPoint( data.HitLocation.xy );
+			let blockedFloorZ = blocked.floorPlane.ZAtPoint( data.HitLocation.xy );
+			let blockedCeilZ = blocked.ceilingPlane.ZAtPoint( data.HitLocation.xy );
 
-			double blockedHeight = blockedCeilZ - blockedFloorZ;
+			let blockedHeight = blockedCeilZ - blockedFloorZ;
 
 			if( newPos.z >= min( blockedCeilZ, ( blockedHeight * 0.7 ) + blockedFloorZ ) )
 			{
