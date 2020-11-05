@@ -176,6 +176,77 @@ class NHDACrowbar : HDWeapon
 
 		case Trace_HitCeiling:
 		case Trace_HitFloor:
+			blocked = data.HitSector;
+			onFloor = data.HitType == Trace_HitFloor;
+
+			let hitPos = data.HitLocation;
+
+			let nearestLine = -1;
+			let nearestDist = double.Infinity;
+			let nearestVert = ( 0, 0 );
+
+			// find nearest line
+			for( int i = 0; i < blocked.lines.Size(); i++ )
+			{
+				let lll = blocked.lines[ i ];
+				let other = lll.frontsector == blocked ? lll.backsector : lll.frontsector;
+
+				// math...........................
+				let delta = lll.delta;
+				let fact = ( delta dot ( hitPos.xy - lll.v1.p ) ) / ( delta dot delta );
+				let nearVert = lll.v1.p + delta * fact;
+
+				let blockedFloorZ = blocked.floorPlane.ZAtPoint( nearVert );
+				let blockedCeilZ = blocked.ceilingPlane.ZAtPoint( nearVert );
+
+				let otherFloorZ = double.Infinity;
+				let otherCeilZ = -double.Infinity;
+
+				if( other )
+				{
+					otherFloorZ = other.floorPlane.ZAtPoint( nearVert );
+					otherCeilZ = other.ceilingPlane.ZAtPoint( nearVert );
+				}
+
+				if( onFloor
+					? ( blockedFloorZ < otherFloorZ || blockedFloorZ > otherCeilZ )
+					: ( blockedCeilZ  > otherCeilZ  || blockedCeilZ < otherFloorZ )
+				)
+				{
+					delta = nearVert - hitPos.xy;
+					let nearDist = delta dot delta;
+
+					if( nearDist < nearestDist )
+					{
+						nearestLine = i;
+						nearestDist = nearDist;
+						nearestVert = nearVert;
+					}
+				}
+			}
+
+			if( nearestLine < 0 || nearestDist > CrowbarRangeSqr) break;
+
+			let lll = blocked.lines[ nearestLine ];
+
+			delta = lll.delta;
+			if( lll.frontsector == blocked )
+				delta = -delta;
+
+			hitNormal = ( -delta.y, delta.x ).Unit();
+
+			newAngle = VectorAngle( hitNormal.x, hitNormal.y ) - 90;
+			newPos.xy = nearestVert + ( hitNormal * radius * 1.3 );
+
+			if( onFloor )
+				newPos.z = blocked.floorPlane.ZAtPoint( nearestVert );
+			else
+				newPos.z = blocked.ceilingPlane.ZAtPoint( nearestVert ) - height;
+
+			place = true;
+
+			break;
+
 		case Trace_HitNone:
 		default:
 			break;
