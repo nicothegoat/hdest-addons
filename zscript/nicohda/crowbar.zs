@@ -1,6 +1,7 @@
 class NHDACrowbar : HDWeapon
 {
 	const CrowbarRange = 72;
+	const CrowbarRangeSqr = CrowbarRange ** 2;
 
 	default
 	{
@@ -184,7 +185,7 @@ class NHDACrowbar : HDWeapon
 		{
 			let cbr = NHDACrowbar( Spawn( "NHDACrowbar", newPos ) );
 
-			if( owner.Distance3D( cbr ) <= CrowbarRange )
+			if( owner.Distance3DSquared( cbr ) <= CrowbarRangeSqr )
 			{
 				cbr.angle = newAngle;
 				cbr.AttachCrowbar( blocked, onFloor );
