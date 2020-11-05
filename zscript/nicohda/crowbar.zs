@@ -179,6 +179,8 @@ class NHDACrowbar : HDWeapon
 			blocked = data.HitSector;
 			onFloor = data.HitType == Trace_HitFloor;
 
+			if( onFloor ? blocked.floorPlane.isSlope() : blocked.ceilingPlane.isSlope() ) break;
+
 			let hitPos = data.HitLocation;
 
 			let nearestLine = -1;
